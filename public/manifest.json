@@ -1,0 +1,9 @@
+{
+  "name": "mercury",
+  "short_name": "mercury",
+  "icons": [],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff0000"
+}
