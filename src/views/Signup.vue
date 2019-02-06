@@ -1,6 +1,7 @@
 <template>
-  <div class="signup">
+  <div class="view-signup">
     <div class="container-signup">
+      <h2>Signup</h2>
       <label>
         Email:
         <input type="email" v-model="signupEmail">
@@ -14,15 +15,7 @@
   </div>
 </template>
 
-<style lang="scss">
-label input {
-  display: block;
-}
-
-button {
-  display: block;
-}
-</style>
+<style lang="scss"></style>
 
 
 <script>

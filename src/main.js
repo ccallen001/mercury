@@ -19,10 +19,12 @@ import App from './App.vue';
 
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(route => route.meta.requiresAuth);
+  const currentUser = Firebase.auth().currentUser;
 
-  if (requiresAuth) {
+  if (requiresAuth && !currentUser) {
     next('/signin');
   } else {
+    console.log({ currentUser });
     next();
   }
 });

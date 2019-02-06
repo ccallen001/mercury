@@ -1,6 +1,7 @@
 <template>
-  <div class="home">
-    <HelloWorld msg="hello world"/>
+  <div class="view-home">
+    <h2>Home</h2>
+    <HelloWorld msg="hello world component"/>
   </div>
 </template>
 
