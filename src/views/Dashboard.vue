@@ -1,7 +1,9 @@
 <template>
   <div class="view-dashboard">
     <h2>Dashboard</h2>
-    <p class="msg-welcome">Welcome to Mercury, {{ currentUser }}!</p>
+    <p class="msg-welcome">Welcome to Mercury,
+      <strong>{{ currentUser }}</strong>!
+    </p>
   </div>
 </template>
 

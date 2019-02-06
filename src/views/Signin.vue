@@ -34,8 +34,9 @@ export default {
       Firebase.auth()
         .signInWithEmailAndPassword(this.signinEmail, this.signinPassword)
         .then(resp => {
-          alert(`User "${this.signinEmail}" is now signed in!`);
-          $this;
+          alert(`User ${this.signinEmail} is now signed in!`);
+
+          this.$router.push("/dashboard");
         });
     }
   }

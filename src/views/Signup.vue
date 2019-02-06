@@ -34,7 +34,7 @@ export default {
       Firebase.auth()
         .createUserWithEmailAndPassword(this.signupEmail, this.signupPassword)
         .then(resp => {
-          alert(`User "${this.signupEmail}" signed up successfully!`);
+          alert(`User ${this.signupEmail} signed up successfully!`);
         });
     }
   }

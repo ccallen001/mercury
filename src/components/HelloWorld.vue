@@ -1,6 +1,6 @@
 <template>
   <div class="component-hello-world">
-    <h2>{{ msg }}</h2>
+    <h3>{{ msg }}</h3>
   </div>
 </template>
 
