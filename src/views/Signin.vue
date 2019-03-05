@@ -4,11 +4,11 @@
       <h2>Signin</h2>
       <label>
         Email:
-        <input type="email" v-model="signinEmail">
+        <input type="email" v-model="signinEmail" @keyup.enter="signin">
       </label>
       <label>
         Password:
-        <input type="password" v-model="signinPassword">
+        <input type="password" v-model="signinPassword" @keyup.enter="signin">
       </label>
       <button @click="signin">Signin</button>
     </div>
@@ -30,6 +30,9 @@ export default {
     };
   },
   methods: {
+    resetFields() {
+      [this.signinEmail, this.signPassword].forEach(fieldValue => fieldValue = '');
+    },
     signin() {
       Firebase.auth()
         .signInWithEmailAndPassword(this.signinEmail, this.signinPassword)
@@ -37,6 +40,10 @@ export default {
           alert(`User ${this.signinEmail} is now signed in!`);
 
           this.$router.push("/dashboard");
+        })
+        .catch(err => {
+          alert(err.code === 'auth/user-not-found' ? 'User not found.' : 'Oops! Something went wrong.');
+          this.resetFields();
         });
     }
   }
