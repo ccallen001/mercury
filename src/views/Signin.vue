@@ -15,7 +15,31 @@
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.view-signin {
+  .container-signin {
+    padding: 16px;
+    padding-top: 0;
+    padding-bottom: 24px;
+    background-color: whitesmoke;
+    border-radius: 4px;
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      text-align: left;
+
+      &:last-of-type {
+        margin-bottom: 16px;
+      }
+
+      input {
+        display: block;
+      }
+    }
+  }
+}
+</style>
 
 
 <script>
@@ -38,7 +62,7 @@ export default {
         .signInWithEmailAndPassword(this.signinEmail, this.signinPassword)
         .then(resp => {
           alert(`User ${this.signinEmail} is now signed in!`);
-
+          this.$parent.$emit('signed-in');
           this.$router.push("/dashboard");
         })
         .catch(err => {

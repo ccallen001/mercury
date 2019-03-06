@@ -1,52 +1,68 @@
 <template>
   <div class="view-dashboard">
-    <h2>Dashboard</h2>
+    <h2 class="page-name">Dashboard</h2>
     <p class="msg-welcome">
       Welcome to Mercury,
       <strong>{{ currentUser }}</strong>!
     </p>
     <div class="container-messages">
       <h3>Messages</h3>
-      <p class="no-messages" v-if="messagesHaveBeenReceived && messages.length === 0">No messages to display.</p>
+      <p
+        class="no-messages"
+        v-if="messagesHaveBeenRetrieved && messages.length === 0"
+      >No messages to display.</p>
       <ul class="list-messages">
         <li v-for="messageObj in messages" :key="messageObj.messageId">
           <p class="message">{{ messageObj.message }}</p>
-          <span class="data-message">{{ messageObj.user }} {{ messageObj.date }}<span :data-message-id="messageObj.messageId"></span></span>
+          <span class="data-message">
+            {{ messageObj.user }} {{ messageObj.date }}
+            <span :data-message-id="messageObj.messageId"></span>
+          </span>
         </li>
       </ul>
-      <input
-        type="text"
-        placeholder="Type your message here"
-        v-model="userMessage"
-        @keyup.enter="submitMessage"
-      >
-      <button @click="submitMessage">Submit</button>
+      <div class="container-user-message">
+        <input
+          type="text"
+          placeholder="Type your message here"
+          v-model="userMessage"
+          @keyup.enter="submitMessage"
+        >
+        <button @click="submitMessage">Submit</button>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss">
-.view-dashboard {
+.view-dashboard {  
   .msg-welcome {
-    margin-bottom: 32px;
+    margin-bottom: 30px;
   }
 
   .container-messages {
     padding: 16px;
     padding-top: 8px;
     padding-bottom: 32px;
-    width: 50vw;
-    min-width: 300px;
+    width: 33vw;
+    min-width: 304px;
+    background-color: whitesmoke;
+    border-radius: 4px;
     box-shadow: 0 1px 8px #333;
 
     .no-messages {
       margin-bottom: 24px;
     }
 
-    .list-messages {
+    ul.list-messages {
       margin-bottom: 40px;
-      padding: 0;
+      padding: 8px;
+      padding-top: 0;
+      max-height: 200px;
+      background: linear-gradient(to bottom right, cornflowerblue, salmon);
       text-align: left;
+      border: 1px solid #666;
+      border-radius: 4px;
+      overflow: auto;
 
       li {
         list-style-type: none;
@@ -54,6 +70,7 @@
         .message {
           list-style-type: none;
           margin-bottom: -2px;
+          font-weight: bold;
         }
 
         .data-message {
@@ -62,9 +79,12 @@
       }
     }
 
-    input,
-    button {
-      display: initial;
+    .container-user-message {
+      display: flex;
+
+      input {
+        flex: auto;
+      }
     }
   }
 }

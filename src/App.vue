@@ -2,15 +2,12 @@
   <div id="app">
     <h1 id="title">Mercury</h1>
     <div id="nav">
-      <div class="nav-left"></div>
-      <div class="nav-middle">
+      <div class="nav">
         <router-link to="/">Home</router-link>
         <router-link to="/dashboard">Dashboard</router-link>
         <router-link to="/signup" v-if="!currentUser">Signup</router-link>
         <router-link to="/signin" v-if="!currentUser">Signin</router-link>
-      </div>
-      <div class="nav-right">
-        <span class="signout" v-if="currentUser" @click="signout">(X)</span>
+        <span class="signout" v-if="currentUser" @click="signout">Signout (X)</span>
       </div>
     </div>
     <router-view/>
@@ -21,65 +18,45 @@
 // helpers
 [class*="container-"] {
   display: inline-block;
-  padding: 8px 32px 32px;
-  box-shadow: 0 2px 16px #ddd;
-  border-radius: 4px;
-
-  label {
-    display: block;
-    margin-bottom: 8px;
-    text-align: left;
-  }
-
-  label:last-of-type {
-    margin-bottom: 32px;
-  }
-
-  label input {
-    display: block;
-  }
-
-  button {
-    display: block;
-    margin: auto;
-  }
 }
 //
 
 #app {
-  text-align: center;
-}
-
-#title {
-  font-size: 40px;
-  margin-bottom: 64px;
-}
-
-#nav {
-  display: flex;
-  margin-bottom: 64px;
-
-  .nav-left {
-    flex: 1;
+  #title {
+    font-size: 64px;
+    color: whitesmoke;
+    text-shadow: 0 1px 2px #111, 0 1px 16px #333;
+    margin-bottom: 60px;
   }
 
-  .nav-middle {
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-  }
+  #nav {
+    display: block;
+    margin: auto;
+    margin-bottom: 64px;
+    padding: 16px;
+    width: 80vw;
+    background-color: whitesmoke;
+    border-radius: 4px;
 
-  .nav-right {
-    flex: 1;
-    text-align: right;
+    .nav {
+      display: flex;
+      justify-content: space-between;
 
-    .signout {
-      margin-right: 32px;
+      & > * {
+        flex: 1;
+      }
 
-      &:hover {
-        cursor: pointer;
+      .signout {
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
+  }
+
+  .page-name {
+    color: whitesmoke;
+    text-shadow: 0 1px 4px #111;
   }
 }
 </style>
@@ -89,16 +66,24 @@ import Firebase from "firebase";
 
 export default {
   name: "app",
-  computed: {
-    currentUser() {
-      return Firebase.auth().currentUser;
-    }
+  beforeMount() {
+    this.$on('signed-in', () => {
+      this.currentUser = Firebase.auth().currentUser;
+    });
+  },
+  data() {
+    return {
+      currentUser: Firebase.auth().currentUser
+    };
   },
   methods: {
     signout() {
       Firebase.auth()
         .signOut()
-        .then(() => this.$router.push("/"));
+        .then(() => {
+          this.currentUser = null;
+          this.$router.push("/");
+        });
     }
   }
 };
