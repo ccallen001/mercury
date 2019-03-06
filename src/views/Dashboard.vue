@@ -3,7 +3,7 @@
     <h2 class="page-name">Dashboard</h2>
     <p class="msg-welcome">
       Welcome to Mercury,
-      <strong>{{ currentUser }}</strong>!
+      <strong>{{ currentUserEmail }}</strong>!
     </p>
     <div class="container-messages">
       <h3>Messages</h3>
@@ -96,7 +96,7 @@ import Firebase from "firebase";
 export default {
   name: "dashboard",
   beforeMount() {
-    this.currentUser = Firebase.auth().currentUser.email;
+    this.currentUserEmail = Firebase.auth().currentUser.email;
 
     Firebase.database()
       .ref("messages")
@@ -119,7 +119,7 @@ export default {
   },
   data() {
     return {
-      currentUser: "",
+      currentUserEmail: "",
       messages: [],
       messagesHaveBeenRetrieved: false,
       userMessage: ""
@@ -130,7 +130,7 @@ export default {
       Firebase.database()
         .ref("messages")
         .push({
-          user: this.currentUser,
+          user: this.currentUserEmail,
           message: this.userMessage,
           date: new Date()
             .toString()

@@ -23,6 +23,7 @@
     padding-bottom: 24px;
     background-color: whitesmoke;
     border-radius: 4px;
+    box-shadow: 0 1px 8px #333;
 
     label {
       display: block;

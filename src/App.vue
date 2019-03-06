@@ -32,9 +32,9 @@
   #nav {
     display: block;
     margin: auto;
-    margin-bottom: 64px;
+    margin-bottom: 32px;
     padding: 16px;
-    width: 80vw;
+    width: 95vw;
     background-color: whitesmoke;
     border-radius: 4px;
 
