@@ -36,29 +36,37 @@
 <style lang="scss">
 .view-dashboard {  
   .msg-welcome {
-    margin-bottom: 30px;
+    margin: 0;
+    margin-bottom: 20px;
   }
 
   .container-messages {
+    margin-bottom: 32px;
     padding: 16px;
-    padding-top: 8px;
-    padding-bottom: 32px;
+    padding-top: 2px;
     width: 33vw;
     min-width: 304px;
     background-color: whitesmoke;
     border-radius: 4px;
     box-shadow: 0 1px 8px #333;
 
+    h3 {
+      margin: 0;
+      margin-top: 1px;
+      margin-bottom: 6px;
+    }
+
     .no-messages {
       margin-bottom: 24px;
     }
 
     ul.list-messages {
-      margin-bottom: 40px;
+      margin: 0;
+      margin-bottom: 20px;
       padding: 8px;
       padding-top: 0;
       max-height: 200px;
-      background: linear-gradient(to bottom right, cornflowerblue, salmon);
+      background: linear-gradient(to bottom right, rgba(39, 58, 93, 0.25), rgba(100, 55, 41, 0.25));
       text-align: left;
       border: 1px solid #666;
       border-radius: 4px;

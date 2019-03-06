@@ -23,27 +23,36 @@
 
 #app {
   #title {
-    font-size: 64px;
+    margin: 0;
+    margin-bottom: 16px;
+    padding: 0;
     color: whitesmoke;
+    font-size: 64px;
     text-shadow: 0 1px 2px #111, 0 1px 16px #333;
-    margin-bottom: 60px;
   }
 
   #nav {
     display: block;
     margin: auto;
-    margin-bottom: 32px;
-    padding: 16px;
+    margin-bottom: 12px;
+    padding: 16px 0;
     width: 95vw;
-    background-color: whitesmoke;
+    background: linear-gradient(to bottom right, rgba(100, 55, 41, 0.5),  rgba(39, 58, 93, 0.5));;
+    color: whitesmoke;
     border-radius: 4px;
 
     .nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
 
       & > * {
-        flex: 1;
+        // flex: 1;
+        color: whitesmoke;
+        text-decoration: none;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       .signout {
@@ -55,6 +64,8 @@
   }
 
   .page-name {
+    margin: 0;
+    margin-bottom: 10px;
     color: whitesmoke;
     text-shadow: 0 1px 4px #111;
   }

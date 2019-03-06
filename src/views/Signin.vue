@@ -36,6 +36,7 @@
 
       input {
         display: block;
+        margin-top: 4px;
       }
     }
   }

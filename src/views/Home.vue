@@ -1,9 +1,12 @@
 <template>
   <div class="view-home">
-    <h2>Home</h2>
-    <HelloWorld msg="hello world component"/>
+    <h2 class="page-name">Home</h2>
+    <HelloWorld msg="Click above to Signup or Signin"/>
   </div>
 </template>
+
+<style lang="scss" scoped></style>
+
 
 <script>
 // @ is an alias to /src
