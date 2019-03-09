@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#111">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="icon"
     href="https://images.sftcdn.net/images/t_app-logo-l,f_auto,dpr_auto/p/3656d8dc-9b62-11e6-bb5a-00163ed833e7/1972462803/msn-messenger-mercury-free-logo.png">
@@ -18,7 +19,7 @@
     body {
       margin: 0;
       height: 100%;
-      background: linear-gradient(to bottom right, cornflowerblue, salmon) no-repeat;
+      background: linear-gradient(to bottom right, cornflowerblue, salmon);
       background-size: 100%;
       font-family: tahoma;
       text-align: center;
@@ -31,8 +32,22 @@
       /* border: 1px solid; */
     }
 
-    button:hover {
+    button {
+      padding: 4px 16px;
+      background-color: white;
+      color: #111;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      outline: none;
+      box-shadow: 0 1px 4px #666;
       cursor: pointer;
+      transition: all 100ms ease-out;
+    }
+
+    button:hover {
+      background-color: #666;
+      color: white;
     }
   </style>
 </head>

@@ -17,29 +17,7 @@
 
 <style lang="scss">
 .view-signup {
-  .container-signup {
-    padding: 16px;
-    padding-top: 0;
-    padding-bottom: 24px;
-    background-color: whitesmoke;
-    border-radius: 4px;
-    box-shadow: 0 1px 8px #333;
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      text-align: left;
-
-      &:last-of-type {
-        margin-bottom: 16px;
-      }
-
-      input {
-        display: block;
-        margin-top: 4px;
-      }
-    }
-  }
 }
 </style>
 

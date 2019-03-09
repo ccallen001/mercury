@@ -24,6 +24,7 @@
 #app {
   #title {
     margin: 0;
+    margin-top: 16px;
     margin-bottom: 16px;
     padding: 0;
     color: whitesmoke;
@@ -43,20 +44,27 @@
 
     .nav {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
 
       & > * {
         // flex: 1;
+        margin: 0 16px;
+        &:first-child { margin-left: 0; }
+        &:last-child { margin-right: 0; }
+        width: 100px;
         color: whitesmoke;
+        font-weight: bold;
         text-decoration: none;
 
         &:hover {
+          color: #111;
           cursor: pointer;
         }
       }
 
       .signout {
         &:hover {
+          color: #111;
           cursor: pointer;
         }
       }
@@ -68,6 +76,33 @@
     margin-bottom: 10px;
     color: whitesmoke;
     text-shadow: 0 1px 4px #111;
+  }
+
+  .container { 
+    &-signup,
+    &-signin {
+      padding: 0 32px 24px;
+      width: 300px;
+      background-color: whitesmoke;
+      border-radius: 4px;
+      box-shadow: 0 1px 8px #333;
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        text-align: left;
+
+        &:last-of-type {
+          margin-bottom: 32px;
+        }
+
+        input {
+          display: block;
+          margin-top: 4px;
+          width: 100%;
+        }
+      }
+    }
   }
 }
 </style>

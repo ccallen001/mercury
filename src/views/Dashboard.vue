@@ -5,11 +5,11 @@
       Welcome to Mercury,
       <strong>{{ currentUserEmail }}</strong>!
     </p>
-    <div class="container-messages">
+    <div class="container-messages" v-if="messagesHaveBeenRetrieved">
       <h3>Messages</h3>
       <p
         class="no-messages"
-        v-if="messagesHaveBeenRetrieved && messages.length === 0"
+        v-if="messages.length === 0"
       >No messages to display.</p>
       <ul class="list-messages">
         <li v-for="messageObj in messages" :key="messageObj.messageId">
